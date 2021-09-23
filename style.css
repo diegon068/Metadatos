@@ -1,0 +1,110 @@
+/* El selector universal es *
+Se pueden poner nombres de etiquetas (ej: a, p, br, li, h1) para aplicar a todas las etiquetas de ese tipo
+El selector de los id es "#" anterior al nombre del id
+El selector de class es "." anterior al nombre de la clase
+Se puede definir el estilo de atributos. Ej: [href]{} (aplica a todas las etiquetas que tengan un atributo class)
+De igual manera solo puedo modificar el estilo de solo una etiqueta que contenga un atributo. EJ: p[class]{}
+Se puede definir el estilo de varias clases agrupandolas (ej: .class1, .class2 {})
+Se puede modificar solo uno o algunos elementos que tengan la misma clase, agregando espacio en el index y poniendo
+    otro nombre. En el CSS se veria asi: .class1.class2{} Y en el HTML se veria: class= class1 class2
+    Al hacer esto, sigue tomando los estilos de la clase sola, pero se le agrega lo de la clase adicional class2
+Se puede crear estilos para todos los hijos de una etiqueta. Esto solo poniendole una clase a la etiqueta padre y todo
+    lo que esté adentro tomará el estilo.
+Se puede crear estilos para un hijo DIRECTO (hijos de hijos no) de una etiqueta con el formato: .class1>.classhija{}
+Se pueden aplicar estilos a todas aquellas etiquetas hermanas SIGUIENTES que no tengan la clase. Ej: clase menu en el codigo
+Se puede aplicar estilo solo al hermano siguiente, siguiendo el anterior código, pero cambiando el ~ por +.
+*/
+/* PRIMER  ESTILO A APLICAR: QUITAR LOS MARGENES PREDETERMINADOS DE LOS NAVEGADORES */
+*{
+    margin: 0px;
+}
+.class1{
+    color: aqua;
+}
+
+.class1.class2{
+    font-size: 100px;
+}
+
+.menu ~ li{
+    background: black;
+    color: chartreuse;
+}
+/* Estilos para los iconos de las redes sociales */
+.boton-facebook{
+    background: blue;
+    /* padding es para cuadrar el tamaño del relleno */
+    padding: 10px;
+    /* margin es la separación por fuera del contenido con respecto a los demás */
+    margin: 4px;
+}
+.boton-insta{
+    background: rgb(255, 0, 221);
+    padding: 10px;
+    margin: 4px;
+}
+.boton-twitter{
+    background: rgb(27, 161, 223);
+    padding: 10px;
+    margin: 4px;
+}
+/* Apica el estilo a TODAS las clases que CONTENGAN en este caso "fa-" */
+[class*="fa-"]{
+    color: white;
+}
+
+/* BOX MODEL */
+.texto1{
+    background: tomato;
+    color: mediumblue;
+    /* Ancho de la caja, se utiliza mas que el height */
+    width: 400px;
+    /* Alto de la caja, normalmente es mejor dejarlo automatico */
+    /* height: 200px; */
+    /* Da un area, en este caso de 20 px en cada direccion desde el borde hasta el contenido */
+    padding: 20px;
+    /* Espacio de separacion desde el borde hacia afuera */
+    margin: 20px;
+}
+
+.texto2{
+    background: mediumslateblue;
+    color: rgb(255, 255, 255);
+}
+
+.titulo{
+    background: blueviolet;
+    color: white;
+    padding: 20px;
+    width: 250px;
+}
+
+.enlinea{
+    /* Si lo dejo asi, antes del otro comentario, entonces los box se suben uno en otro, se cruzan */
+    background: red;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    /* Con este atributo le estoy dando la orden de que se comporte como bloque, pero en linea horizontal  */
+    display: inline-block;
+    /* Las etiquetas de block se muestran una abajo de la otra, como las p o los h1. Las etiquetas inline se muestran
+    una al lado de la otra. Y el atributo display modifica ese valor, ya sea poniendole block, inline, o inline-block */
+}
+
+/* BOTON CON EFECTO */
+.btnefecto{
+    display: inline-block;
+    background: gainsboro;
+    color: black;
+    padding: 10px;
+    margin: 40px;
+    width: 150px;
+    border: 1px solid #dddd;
+    text-align: center;
+    transition: padding 0.5s ease-in-out;
+}
+
+.btnefecto:hover{
+    padding: 50px;
+
+}
